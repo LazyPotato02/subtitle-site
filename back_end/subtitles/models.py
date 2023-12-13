@@ -1,6 +1,7 @@
 from django.db import models
 
 
+# Model for the subtitle database objects
 class Subtitles(models.Model):
     name = models.CharField(
         blank=False,
