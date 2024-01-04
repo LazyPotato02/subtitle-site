@@ -8,11 +8,13 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+
 }
 
 h1{
     padding-right: 36px ;
     font-size: 38px;
+
 }
 
 .links a{

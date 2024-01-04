@@ -20,7 +20,7 @@ function Home() {
                 {loading && <div>Loading</div>}
                 {!loading && (
 
-                    data.map((item, index) => (
+                    data.slice(0,10).map((item, index) => (
                         <article key={index} className={`movie`}>
 
                             <img alt={'car'} src={MoviePic}/>
@@ -33,6 +33,13 @@ function Home() {
                     ))
 
                 )}
+                <div className={'movie add'}>
+                    <img src={MoviePic} alt="img"/>
+                    <p>ADDD</p>
+                    <p>ADDD</p>
+                    <p>ADDD</p>
+                    <p>ADDD</p>
+                </div>
                 {/*<div className={'movie'}>*/}
                 {/*<img src={MoviePic} alt="img"/>*/}
                 {/*    <p>Name: Test</p>*/}
