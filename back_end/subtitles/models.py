@@ -24,6 +24,10 @@ class Subtitles(models.Model):
         blank=False,
         null=False
     )
-
+    year = models.IntegerField(
+        default='Null',
+        blank=False,
+        null=False
+    )
     def __str__(self):
         return self.name
