@@ -17,6 +17,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='subtitles',
             name='year',
-            field=models.IntegerField(default='Null'),
+            field=models.IntegerField(default=0),
         ),
     ]

@@ -20,7 +20,8 @@ class SubtitlesApiView(APIView):
         data = dict(
             name=request.data.get("name"),
             type=request.data.get('type'),
-            genre=request.data.get('genre')
+            genre=request.data.get('genre'),
+            year = request.data.get('year')
         )
         serializer = SubtitlesSerializer(data=data)
         if serializer.is_valid():
@@ -59,7 +60,8 @@ class SubtitleDetailedView(APIView):
         data = {
             'name': request.data.get('name'),
             'type': request.data.get('type'),
-            'genre': request.data.get('genre')
+            'genre': request.data.get('genre'),
+            'year': request.data.get('year')
         }
         serializer = SubtitlesSerializer(instance=subtitle_instance, data=data, partial=True)
         if serializer.is_valid():

@@ -25,7 +25,7 @@ class Subtitles(models.Model):
         null=False
     )
     year = models.IntegerField(
-        default='Null',
+        default=0,
         blank=False,
         null=False
     )

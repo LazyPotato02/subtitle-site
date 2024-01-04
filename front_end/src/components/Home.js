@@ -27,7 +27,7 @@ function Home() {
                             <p>Name: {item.name}</p>
                             <p>Type: {item.type}</p>
                             <p>Genre: {item.genre}</p>
-                            {/*<p>Year: {item.year}</p>*/}
+                            <p>Year: {item.year}</p>
 
                         </article>
                     ))
