@@ -1,12 +1,17 @@
 import React ,{ useState, useEffect } from 'react';
+import axios from 'axios'
+
 import './Home.css';
 import MoviePic from '../img/wl-op-16se.jpg'
-import axios from 'axios'
 function Home() {
+
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true);
+
+
     useEffect(() => {
         setLoading(true)
+
         axios.get('http://localhost:8000/subtitles/api/')
             .then(response => setData(response.data))
             .catch(error => console.log(error))
@@ -20,102 +25,28 @@ function Home() {
                 {loading && <div>Loading</div>}
                 {!loading && (
 
-                    data.slice(0,10).map((item, index) => (
+                    data.slice(0,9).map((item, index) => (
                         <article key={index} className={`movie`}>
 
-                            <img alt={'car'} src={MoviePic}/>
+                            <a href=""><img alt={'car'} src={MoviePic}/></a>
+
                             <p>Name: {item.name}</p>
                             <p>Type: {item.type}</p>
                             <p>Genre: {item.genre}</p>
                             <p>Year: {item.year}</p>
+                            <p>ID: {item.id}</p>
 
                         </article>
                     ))
 
                 )}
-                <div className={'movie add'}>
+                <div className={'movie'}>
                     <img src={MoviePic} alt="img"/>
                     <p>ADDD</p>
                     <p>ADDD</p>
                     <p>ADDD</p>
                     <p>ADDD</p>
                 </div>
-                {/*<div className={'movie'}>*/}
-                {/*<img src={MoviePic} alt="img"/>*/}
-                {/*    <p>Name: Test</p>*/}
-                {/*    <p>Genre: Test</p>*/}
-                {/*    <p>Year: Test</p>*/}
-                {/*    <p>Rating: Test</p>*/}
-                {/*</div>*/}
-                {/*<div className={'movie'}>*/}
-                {/*    <img src={MoviePic} alt="img"/>*/}
-                {/*    <p>Name: Test</p>*/}
-                {/*    <p>Genre: Test</p>*/}
-                {/*    <p>Year: Test</p>*/}
-                {/*    <p>Rating: Test</p>*/}
-                {/*</div>*/}
-                {/*<div className={'movie'}>*/}
-                {/*    <img src={MoviePic} alt="img"/>*/}
-                {/*    <p>Name: Test</p>*/}
-                {/*    <p>Genre: Test</p>*/}
-                {/*    <p>Year: Test</p>*/}
-                {/*    <p>Rating: Test</p>*/}
-                {/*</div>*/}
-                {/*<div className={'movie'}>*/}
-                {/*    <img src={MoviePic} alt="img"/>*/}
-                {/*    <p>Name: Test</p>*/}
-                {/*    <p>Genre: Test</p>*/}
-                {/*    <p>Year: Test</p>*/}
-                {/*    <p>Rating: Test</p>*/}
-                {/*</div>*/}
-                {/*<div className={'movie'}>*/}
-                {/*    <img src={MoviePic} alt="img"/>*/}
-                {/*    <p>Name: Test</p>*/}
-                {/*    <p>Genre: Test</p>*/}
-                {/*    <p>Year: Test</p>*/}
-                {/*    <p>Rating: Test</p>*/}
-                {/*</div>*/}
-                {/*<div className={'movie'}>*/}
-                {/*    <img src={MoviePic} alt="img"/>*/}
-                {/*    <p>Name: Test</p>*/}
-                {/*    <p>Genre: Test</p>*/}
-                {/*    <p>Year: Test</p>*/}
-                {/*    <p>Rating: Test</p>*/}
-                {/*</div>*/}
-                {/*<div className={'movie add'}>*/}
-                {/*    <img src={MoviePic} alt="img"/>*/}
-                {/*    <p>ADDD</p>*/}
-                {/*</div>*/}
-                {/*<div className={'movie'}>*/}
-                {/*    <img src={MoviePic} alt="img"/>*/}
-                {/*    <p>Name: Test</p>*/}
-                {/*    <p>Genre: Test</p>*/}
-                {/*    <p>Year: Test</p>*/}
-                {/*    <p>Rating: Test</p>*/}
-                {/*</div>*/}
-
-                {/*<div className={'movie'}>*/}
-                {/*    <img src={MoviePic} alt="img"/>*/}
-                {/*    <p>Name: Test</p>*/}
-                {/*    <p>Genre: Test</p>*/}
-                {/*    <p>Year: Test</p>*/}
-                {/*    <p>Rating: Test</p>*/}
-                {/*</div>*/}
-                {/*<div className={'movie'}>*/}
-                {/*    <img src={MoviePic} alt="img"/>*/}
-                {/*    <p>Name: Test</p>*/}
-                {/*    <p>Genre: Test</p>*/}
-                {/*    <p>Year: Test</p>*/}
-                {/*    <p>Rating: Test</p>*/}
-                {/*</div>*/}
-                {/*<div className={'movie'}>*/}
-                {/*    <img src={MoviePic} alt="img"/>*/}
-                {/*    <p>Name: Test</p>*/}
-                {/*    <p>Genre: Test</p>*/}
-                {/*    <p>Year: Test</p>*/}
-                {/*    <p>Rating: Test</p>*/}
-                {/*</div>*/}
-
 
             </div>
 

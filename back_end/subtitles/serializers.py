@@ -5,7 +5,7 @@ from .models import Subtitles
 class SubtitlesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Subtitles
-        fields = ['name','type','genre','year']
+        fields = ['id','name','type','genre','year']
 
 
 
