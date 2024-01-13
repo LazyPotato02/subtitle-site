@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter,Routes, Route,} from 'react-router-dom';
 import Home from './components/Home'
 import NavBar from './components/NavBar'
+import MovieDetails from "./components/MovieDetails";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
@@ -12,6 +13,7 @@ root.render(
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home/>}/>
+                <Route path="/movies/:id" element={<MovieDetails/>} />
             </Routes>
         </BrowserRouter>
     </React.StrictMode>
