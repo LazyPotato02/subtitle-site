@@ -1,0 +1,21 @@
+.movieMain{
+    display: flex;
+    justify-content: center;
+}
+
+.movieBody{
+    background-color: #B5838D;
+    border-radius: 8px;
+
+    width: 80%;
+    height: 80%;
+    display: flex;
+}
+
+.img{
+    width: 450px;
+    height: 450px;
+    padding: 100px 50px;
+    border-radius: 50%;
+    pointer-events: none;
+}
