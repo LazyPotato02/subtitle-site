@@ -2,3 +2,9 @@
 
 - Django Rest
 - React
+
+#DB
+ - Postgres
+
+# Deploy
+ - docker compose up -d
