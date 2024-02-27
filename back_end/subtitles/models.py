@@ -29,5 +29,11 @@ class Subtitles(models.Model):
         blank=False,
         null=False
     )
+    location = models.CharField(
+        default='null',
+        max_length=255,
+        blank=False,
+        null=False
+    )
     def __str__(self):
         return self.name
