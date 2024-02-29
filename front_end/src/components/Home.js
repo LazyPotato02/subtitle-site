@@ -8,7 +8,6 @@ function Home() {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true);
 
-
     useEffect(() => {
         setLoading(true)
 
@@ -18,23 +17,22 @@ function Home() {
         setLoading(false);
     }, []);
 
-
     return (
         <div className="mainPage">
             <div className={'movies'}>
                 {loading && <div>Loading</div>}
                 {!loading && (
 
-                    data.slice(0,9).map((item, index) => (
+                    data.slice(0, 9).map((item, index) => (
                         <article key={index} className={`movie`}>
 
-                            <a href=""><img alt={'car'} src={MoviePic}/></a>
+                            <a href={item.id}><img alt={'car'} src={MoviePic}/></a>
 
-                            <p>Name: {item.name}</p>
-                            <p>Type: {item.type}</p>
-                            <p>Genre: {item.genre}</p>
-                            <p>Year: {item.year}</p>
-                            <p>ID: {item.id}</p>
+                            <p>{item.name}</p>
+                            {/*<p>Type: {item.type}</p>*/}
+                            <p>{item.genre}</p>
+                            <p>{item.year}</p>
+                            {/*<p>ID: {item.id}</p>*/}
 
                         </article>
                     ))
