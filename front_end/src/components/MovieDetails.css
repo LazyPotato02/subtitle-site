@@ -6,16 +6,72 @@
 .movieBody{
     background-color: #B5838D;
     border-radius: 8px;
-
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: space-evenly;*/
     width: 80%;
     height: 80%;
-    display: flex;
+    margin-bottom: 40px;
+    flex-direction: column;
 }
 
 .img{
-    width: 450px;
-    height: 450px;
+    width: 25%;
+    height: 500px;
     padding: 100px 50px;
-    border-radius: 50%;
+    /*border-radius: 50%;*/
     pointer-events: none;
+}
+.movieData{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: -100px;
+}
+.movieData p {
+    font-weight: bold;
+    font-size: 40px;
+}
+.movieDetailBox{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#icon{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;;
+    padding: 4px 60px;
+    background-color: #F8B1A1;
+    margin-bottom: 36px;
+    border-radius: 8px;
+}
+#icon p {
+    font-weight: bold;
+    font-size: 16px;
+}
+.icons img{
+    width: 80%;
+}
+.movieInfo{
+    text-align: center;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+.trailer{
+    background-color: #F8B1A1;
+    border-radius: 8px;
+    padding-bottom: 22px;
+}
+.trailer p {
+    margin-bottom: 0;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.info{
+    text-align: center;
+    background-color: #F8B1A1;
+    border-radius: 8px;
+
+
 }
