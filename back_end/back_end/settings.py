@@ -75,13 +75,24 @@ WSGI_APPLICATION = 'back_end.wsgi.application'
 #     }
 
 # }
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "subtitles",
+#         "USER": "postgres-user",
+#         "PASSWORD": "password",
+#         "HOST": "10.70.71.110",
+#         "PORT": "5432",
+#     }
+# }
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "subtitles",
-        "USER": "postgres-user",
+        "USER": "postgres",
         "PASSWORD": "password",
-        "HOST": "10.70.71.110",
+        "HOST": "localhost",
         "PORT": "5432",
     }
 }
