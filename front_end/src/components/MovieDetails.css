@@ -36,21 +36,31 @@
     align-items: center;
     justify-content: space-around;
 }
-#icon{
+/*.icons{*/
+/*    margin-top: 8px;*/
+/*}*/
+
+.genre{
     display: flex;
     align-items: center;
     justify-content: space-around;;
     padding: 4px 60px;
     background-color: #F8B1A1;
-    margin-bottom: 36px;
+    margin-bottom: 16px;
     border-radius: 8px;
 }
-#icon p {
+
+.genre p {
     font-weight: bold;
     font-size: 16px;
 }
 .icons img{
-    width: 80%;
+    width: 40%;
+}
+
+#langPic{
+    /*margin-top: -10px;*/
+    width: 50%;
 }
 .movieInfo{
     text-align: center;
@@ -72,6 +82,12 @@
     text-align: center;
     background-color: #F8B1A1;
     border-radius: 8px;
-
-
 }
+.languages{
+    display: grid;
+    /*grid-template-columns: auto auto auto;*/
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: -15px;
+    justify-items: center
+}
+
