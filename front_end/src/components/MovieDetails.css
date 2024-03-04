@@ -18,7 +18,7 @@
 .img{
     width: 25%;
     height: 500px;
-    padding: 100px 50px;
+    padding: 100px 50px 20px 41px;
     /*border-radius: 50%;*/
     pointer-events: none;
 }
@@ -84,10 +84,13 @@
     border-radius: 8px;
 }
 .languages{
-    display: grid;
-    /*grid-template-columns: auto auto auto;*/
-    grid-template-columns: repeat(3, 1fr);
-    margin-top: -15px;
-    justify-items: center
+    display: flex;
+    width: 12%;
+    margin-left: 2%;
+    /*display: grid;*/
+    /*!*grid-template-columns: auto auto auto;*!*/
+    /*grid-template-columns: repeat(3, 1fr);*/
+    /*margin-top: -15px;*/
+    /*justify-items: center*/
 }
 

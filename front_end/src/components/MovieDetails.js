@@ -26,13 +26,6 @@ import EELogo from '../img/Assets/flag15.svg'
 import LTLogo from '../img/Assets/flag16.svg'
 import LALogo from '../img/Assets/flag17.svg'
 
-
-
-
-
-
-
-
 function MovieDetails() {
     const {id} = useParams();
     const [data, setData] = useState([])
@@ -42,6 +35,18 @@ function MovieDetails() {
             .then(response => setData(response.data))
             .catch(error => console.log(error))
     }, [id]);
+    window.onload = function () {
+        let langs = document.querySelectorAll('.languages')
+        langs.forEach(function (elem) {
+            elem.addEventListener("click", (event) => {
+                console.log(event.srcElement)
+            //     add classes to every pic so you can filter based on class
+            })
+        })
+
+    }
+
+
     return (
         <div className={'movieMain'}>
             <article className={'movieBody'}>
@@ -53,6 +58,7 @@ function MovieDetails() {
                     {/*<p>{data.year}</p>*/}
                 </div>
                 <div className={'movieDetailBox'}>
+
                     <img className={'img'} src={MoviePic} alt=""/>
                     {/*<div className={'iconWrapper'}>*/}
 
@@ -70,24 +76,7 @@ function MovieDetails() {
                             <img src={SupportPic} alt=""/>
                             <p>SUPPORT US</p>
                         </div>
-                        <div className={'languages'}>
-                            <img id={'langPic'} className={'langPic'} src={USLogo} alt=""/>
-                            <img id={'langPic'} className={'langPic'} src={BGLogo} alt=""/>
-                            <img id={'langPic'} className={'langPic'} src={TRLogo} alt=""/>
-                            <img id={'langPic'} className={'langPic'} src={ROLogo} alt=""/>
-                            <img id={'langPic'} className={'langPic'} src={ALLogo} alt=""/>
-                            <img id={'langPic'} className={'langPic'} src={GELogo} alt=""/>
-                            <img id={'langPic'} className={'langPic'} src={MKLogo} alt=""/>
-                            <img id={'langPic'} className={'langPic'} src={UALogo} alt=""/>
-                            <img id={'langPic'} className={'langPic'} src={SKLogo} alt=""/>
-                            <img id={'langPic'} className={'langPic'} src={SLLogo} alt=""/>
-                            <img id={'langPic'} className={'langPic'} src={BALogo} alt=""/>
-                            <img id={'langPic'} className={'langPic'} src={AZLogo} alt=""/>
-                            <img id={'langPic'} className={'langPic'} src={ARLogo} alt=""/>
-                            <img id={'langPic'} className={'langPic'} src={EELogo} alt=""/>
-                            <img id={'langPic'} className={'langPic'} src={LTLogo} alt=""/>
-                            <img id={'langPic'} className={'langPic'} src={LALogo} alt=""/>
-                        </div>
+
                     </div>
                     <div className={'movieInfo'}>
                         <div className={'trailer'}>
@@ -106,9 +95,31 @@ function MovieDetails() {
 
                         </div>
                     </div>
+
+                </div>
+                <div>
+                    <div className={'languages'}>
+                        <img id={'langPic'} className={'langPic'} src={USLogo} alt=""/>
+                        <img id={'langPic'} className={'langPic'} src={BGLogo} alt=""/>
+                        <img id={'langPic'} className={'langPic'} src={TRLogo} alt=""/>
+                        <img id={'langPic'} className={'langPic'} src={ROLogo} alt=""/>
+                        <img id={'langPic'} className={'langPic'} src={ALLogo} alt=""/>
+                        <img id={'langPic'} className={'langPic'} src={GELogo} alt=""/>
+                        <img id={'langPic'} className={'langPic'} src={MKLogo} alt=""/>
+                        <img id={'langPic'} className={'langPic'} src={UALogo} alt=""/>
+                        <img id={'langPic'} className={'langPic'} src={SKLogo} alt=""/>
+                        <img id={'langPic'} className={'langPic'} src={SLLogo} alt=""/>
+                        <img id={'langPic'} className={'langPic'} src={BALogo} alt=""/>
+                        <img id={'langPic'} className={'langPic'} src={AZLogo} alt=""/>
+                        <img id={'langPic'} className={'langPic'} src={ARLogo} alt=""/>
+                        <img id={'langPic'} className={'langPic'} src={EELogo} alt=""/>
+                        <img id={'langPic'} className={'langPic'} src={LTLogo} alt=""/>
+                        <img id={'langPic'} className={'langPic'} src={LALogo} alt=""/>
+                    </div>
                 </div>
 
             </article>
+
         </div>
     );
 };
