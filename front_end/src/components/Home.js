@@ -38,13 +38,7 @@ function Home() {
                     ))
 
                 )}
-                <div className={'movie'}>
-                    <img src={MoviePic} alt="img"/>
-                    <p>ADDD</p>
-                    <p>ADDD</p>
-                    <p>ADDD</p>
-                    <p>ADDD</p>
-                </div>
+
 
             </div>
 
