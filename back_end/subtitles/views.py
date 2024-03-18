@@ -5,8 +5,9 @@ from rest_framework import status
 from rest_framework import permissions
 from .models import Subtitles
 from .serializers import SubtitlesSerializer
-
-
+import os
+from django.http import FileResponse,HttpResponseNotFound
+from django.conf import settings
 class SubtitlesApiView(APIView):
     # permission_classes = [permissions.IsAuthenticated]
 
@@ -31,6 +32,19 @@ class SubtitlesApiView(APIView):
 
 
 
+def download_file(request, folder_path, file_name):
+    # Construct the full path to the file
+    file_path = os.path.join(settings.MEDIA_ROOT, folder_path, file_name)
+
+    # Check if the file exists
+    if os.path.exists(file_path):
+        # Serve the file using FileResponse
+        return FileResponse(open(file_path, 'rb'), as_attachment=True)
+    else:
+        # Return a 404 error if the file does not exist
+        return HttpResponseNotFound("File not found")
+
+    
 class SubtitleDetailedView(APIView):
     def get_object(self, subtitle_id):
         try:

@@ -1,44 +1,36 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import './MovieDetails.css'
-// import MoviePic from '../img/wl-op-16se.jpg'
 import GenrePic from '../img/Assets/movie_genre_button.svg'
 import SupportPic from '../img/Assets/donate_button.svg'
 import axios from "axios";
 
-// Images
 import CountryFlag from 'react-country-flag';
 
 
-// let filePath = './subtitles'
 
 function MovieDetails() {
     const {id} = useParams();
     const [data, setData] = useState([])
-    let langs = ['AZ','AR','AL','BA','BG','GE','EE','LV','LT','MK','RO','SI','SK','SR','TR','UA','US']
+    let langs = ['AZ','AR','AL','BA','BG','GE','EE','LV','LT','MK','RO','SI','SK','RS','TR','UA','US']
     useEffect(() => {
         axios.get(`http://localhost:8000/subtitles/api/${id}`)
             .then(response => setData(response.data))
             .catch(error => console.log(error))
     }, [id]);
-    window.onload = function () {
-        let langs = document.querySelectorAll('.languages')
-        langs.forEach(function (elem) {
-            elem.addEventListener("click", (event) => {
-                let language = event.srcElement.className
-                const link = document.createElement('a');
-                link.href = data.subtitle_location;
-                let tmpStr = data.subtitle_location.split('/')[2]
-                console.log(tmpStr)
-                link.download = `${tmpStr}_`+ language+'.srt'
-                console.log(link)
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            })
-        })
 
-    }
+    const handleDownload = (language) => {
+        if (data && data.subtitle_location) {
+            const downloadUrl = `http://localhost:8000/subtitles/download/${encodeURIComponent(data.subtitle_location)}/`+`${encodeURIComponent(data.subtitle_location)}_${language}.srt`;
+            const anchor = document.createElement('a');
+            anchor.href = downloadUrl;
+            anchor.download = data.subtitle_location.substring(data.subtitle_location.lastIndexOf('/') + 1);
+            anchor.click();
+        }
+    };
+
+
+
 
     return (
         <div className={'movieMain'}>
@@ -46,21 +38,12 @@ function MovieDetails() {
 
                 <div className={'movieData'}>
                     <p>{data.name}</p>
-                    {/*<p>{data.type}</p>*/}
-                    {/*<p>{data.genre}</p>*/}
-                    {/*<p>{data.year}</p>*/}
                 </div>
                 <div className={'movieDetailBox'}>
 
                     <img className={'img'} src={data.cover_image_location} alt=""/>
-                    {/*<div className={'iconWrapper'}>*/}
 
-                    {/*</div>*/}
                     <div className={'icons'}>
-                        {/*<div id={'icon'} className={'download'}>*/}
-                        {/*    <img src={DownloadPic} alt=""/>*/}
-                        {/*    <p>DOWNLOAD</p>*/}
-                        {/*</div>*/}
                         <div id={'icon'} className={'genre'}>
                             <img src={GenrePic} alt=""/>
                             <p>{data.genre}</p>
@@ -92,17 +75,15 @@ function MovieDetails() {
                 </div>
                 <div>
                     <div className={'languages'}>
-                        {langs.map((item) => (
+                        {langs.map(item => (
+                            <div key={item} style={{ width: '47%', height: '50%', cursor:"pointer" }} disabled={!item.name} onClick={() => handleDownload(item)}>
                                 <CountryFlag
                                     countryCode={item}
                                     svg
-                                    key={item}
-                                    className={item}
-                                    style={{
-                                        width:'47%',
-                                        height:'50%'
-                                    }}
+                                    className="language"
+                                    style={{ width: '100%', height: '100%' }}
                                 />
+                            </div>
                         ))}
 
                     </div>

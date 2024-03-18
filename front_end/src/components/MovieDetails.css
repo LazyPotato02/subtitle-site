@@ -85,7 +85,7 @@
 }
 .languages{
     display: flex;
-    width: 12%;
+    width: 96%;
     margin-left: 2%;
     /*display: grid;*/
     /*!*grid-template-columns: auto auto auto;*!*/
@@ -93,4 +93,6 @@
     /*margin-top: -15px;*/
     /*justify-items: center*/
 }
-
+img{
+    cursor: pointer;
+}

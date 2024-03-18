@@ -1,7 +1,9 @@
 from django.urls import path, include
-from .views import SubtitlesApiView,SubtitleDetailedView
-
+from .views import SubtitlesApiView,SubtitleDetailedView,download_file
+from django.conf.urls.static import static
+from django.conf import settings
 urlpatterns = [
     path('api/', SubtitlesApiView.as_view()),
-    path('api/<int:subtitle_id>',SubtitleDetailedView.as_view())
-]
+    path('api/<int:subtitle_id>',SubtitleDetailedView.as_view()),
+    path('download/<path:folder_path>/<str:file_name>/', download_file, name='download_file'),
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

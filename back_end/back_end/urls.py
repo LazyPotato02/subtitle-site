@@ -19,5 +19,5 @@ from django.urls import path, include
 from subtitles import urls as subtitles_urls
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('subtitles/', include(subtitles_urls))
+    path('subtitles/', include(subtitles_urls)),
 ]
