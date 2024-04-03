@@ -20,11 +20,11 @@ function MovieDetails() {
     }, [id]);
 
     const handleDownload = (language) => {
-        if (data && data.subtitle_location) {
-            const downloadUrl = `http://localhost:8000/subtitles/download/${encodeURIComponent(data.subtitle_location)}/`+`${encodeURIComponent(data.subtitle_location)}_${language}.srt`;
+        if (data) {
+            const downloadUrl = `http://localhost:8000/subtitles/download/${encodeURIComponent(data.folder_name)}/`+`${encodeURIComponent(data.subtitle_file_name)}_${language}.srt`;
             const anchor = document.createElement('a');
             anchor.href = downloadUrl;
-            anchor.download = data.subtitle_location.substring(data.subtitle_location.lastIndexOf('/') + 1);
+            anchor.download = data.folder_name.substring(data.subtitle_file_name.lastIndexOf('/') + 1);
             anchor.click();
         }
     };
@@ -41,7 +41,7 @@ function MovieDetails() {
                 </div>
                 <div className={'movieDetailBox'}>
 
-                    <img className={'img'} src={data.cover_image_location} alt=""/>
+                    <img className={'img'} src={`http://localhost:3000/${data.cover_image_location}`} alt=""/>
 
                     <div className={'icons'}>
                         <div id={'icon'} className={'genre'}>

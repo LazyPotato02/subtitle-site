@@ -7,6 +7,7 @@ import Home from './components/Home'
 import NavBar from './components/NavBar'
 import MovieDetails from "./components/MovieDetails";
 import SearchView from "./components/searchView";
+import NotFound from "./components/notFound";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
@@ -14,9 +15,10 @@ root.render(
         <BrowserRouter>
             <NavBar/>
             <Routes>
+                <Route path="*" element={<NotFound />} />
                 <Route path="/" element={<Home/>}/>
-                <Route path=":id" element={<MovieDetails/>} />
                 <Route path="/search/:searchValue" element={<SearchView/>} />
+                <Route path="/subtitle/:id" element={<MovieDetails/>} />
             </Routes>
         </BrowserRouter>
     </React.StrictMode>

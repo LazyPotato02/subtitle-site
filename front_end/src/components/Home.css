@@ -39,3 +39,16 @@ body{
     height: 200px;
     -webkit-user-drag: none;
 }
+
+
+.not-found{
+    display: flex;
+    justify-content: center;
+    font-size: 46px;
+    margin-top: 20%;
+}
+.not-found p {
+    background-color: #F8B1A1;
+    border-radius: 8px;
+    padding: 16px;
+}

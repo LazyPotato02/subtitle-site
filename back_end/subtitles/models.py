@@ -29,12 +29,19 @@ class Subtitles(models.Model):
         blank=False,
         null=False
     )
-    subtitle_location = models.CharField(
+    subtitle_file_name = models.CharField(
         default='null',
         max_length=255,
         blank=False,
         null=False
     )
+    folder_name = models.CharField(
+        default='null',
+        max_length=255,
+        blank=False,
+        null=False
+    )
+
     cover_image_location = models.CharField(
         default='null',
         max_length=255,
