@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import permissions
 from .models import Subtitles
-from .serializers import SubtitlesSerializer
+from .serializers import SubtitlesSerializer,SearchSerializer
 import os
 from django.http import FileResponse,HttpResponseNotFound
 from django.conf import settings
@@ -44,7 +44,7 @@ def download_file(request, folder_path, file_name):
         # Return a 404 error if the file does not exist
         return HttpResponseNotFound("File not found")
 
-    
+
 class SubtitleDetailedView(APIView):
     def get_object(self, subtitle_id):
         try:
@@ -95,3 +95,14 @@ class SubtitleDetailedView(APIView):
             {'res':'Object deleted!'},
             status=status.HTTP_200_OK
         )
+
+
+
+class subtitleSearchView(APIView,):
+    def get(self, request, format=None):
+        serializer = SearchSerializer(data=request.query_params)
+        if serializer.is_valid():
+            search_query = serializer.validated_data.get('search_query', '')
+            queryset = Subtitles.objects.filter(name__icontains=search_query).values()
+            return Response({"subtitles": list(queryset)})
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

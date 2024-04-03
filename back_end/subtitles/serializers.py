@@ -7,6 +7,6 @@ class SubtitlesSerializer(serializers.ModelSerializer):
         model = Subtitles
         fields = ['id','name','type','genre','year','subtitle_location','cover_image_location']
 
-
-
+class SearchSerializer(serializers.Serializer):
+    search_query = serializers.CharField(max_length=100)
 

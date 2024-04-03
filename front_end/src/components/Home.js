@@ -26,7 +26,7 @@ function Home() {
                     data.slice(0, 9).map((item, index) => (
                         <article key={index} className={`movie`}>
 
-                            <a href={item.id}><img alt={'car'} src={MoviePic}/></a>
+                            <a href={item.id}><img alt={'img'} src={item.cover_image_location}/></a>
 
                             <p>{item.name}</p>
                             {/*<p>Type: {item.type}</p>*/}

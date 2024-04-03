@@ -31,3 +31,26 @@ h1{
     margin: 8px;
 
 }
+
+.searchBar{
+    display: flex;
+    padding: 4px 20px;
+    text-decoration: none;
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    border: 1px solid black;
+    background-color: #F9B2A2;
+    border-radius: 6px;
+    margin: 8px;
+    align-items: center;
+}
+
+.searchBar input{
+    border: 0;
+    margin-right: 8px;
+}
+
+.searchBtn{
+    cursor: pointer;
+}
