@@ -68,7 +68,7 @@ function MovieDetails() {
                             <div id={'episode'} className={'genre'}>
                                 <label htmlFor="episode">Choose episode:</label>
 
-                                <select name="episode" id="episode">
+                                <select className={'selectEpisodes'} name="episode" id="episode">
                                     {Array.from(Array(episodesCount), (_, i) => {
                                         const episodeNumber = i + 1;
                                         return <option key={episodeNumber} value={episodeNumber}>{episodeNumber}</option>;

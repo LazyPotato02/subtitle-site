@@ -1,8 +1,7 @@
 # Create your views here.
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
-from rest_framework import permissions
+from rest_framework import status, permissions,generics
 from .models import Subtitles
 from .serializers import SubtitlesSerializer,SearchSerializer
 import os
@@ -106,3 +105,11 @@ class subtitleSearchView(APIView,):
             queryset = Subtitles.objects.filter(name__icontains=search_query).values()
             return Response({"subtitles": list(queryset)})
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+
+
+class YourModelList(generics.ListAPIView):
+    queryset = Subtitles.objects.all()
+    serializer_class = SubtitlesSerializer

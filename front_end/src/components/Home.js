@@ -1,49 +1,59 @@
-import React ,{ useState, useEffect } from 'react';
-import axios from 'axios'
+import React, {useState, useEffect} from 'react';
 
-import './Home.css';
-import MoviePic from '../img/wl-op-16se.jpg'
 function Home() {
 
-    const [data, setData] = useState([])
-    const [loading, setLoading] = useState(true);
+    const [results, setResults] = useState([]);
+    const [nextPage, setNextPage] = useState(null);
+    const [prevPage, setPrevPage] = useState(null);
 
     useEffect(() => {
-        setLoading(true)
-
-        axios.get('http://localhost:8000/subtitles/api/')
-            .then(response => setData(response.data))
-            .catch(error => console.log(error))
-        setLoading(false);
+        fetchData('http://localhost:8000/subtitles/pagination/');
     }, []);
+
+    const fetchData = (url) => {
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                setResults(data.results);
+                setNextPage(data.next);
+                setPrevPage(data.previous);
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    };
+
+    const handleNextPage = () => {
+        if (nextPage) {
+            fetchData(nextPage);
+        }
+    };
+
+    const handlePrevPage = () => {
+        if (prevPage) {
+            fetchData(prevPage);
+        }
+    };
 
     return (
         <div className="mainPage">
             <div className={'movies'}>
-                {loading && <div>Loading</div>}
-                {!loading && (
-
-                    data.slice(0,14).map((item, index) => (
-                        <article key={index} className={`movie`}>
-
-                            <a href={`http://localhost:3000/subtitle/${item.id}`}><img alt={'img'} src={`http://localhost:3000/${item.cover_image_location}`}/></a>
-
-                            <p>{item.name}</p>
-                            {/*<p>Type: {item.type}</p>*/}
-                            <p>{item.genre}</p>
-                            <p>{item.year}</p>
-                            {/*<p>ID: {item.id}</p>*/}
-
-                        </article>
-                    ))
-
-                )}
-
+                {results.map((movie, index) => (
+                    <article key={index} className="movie">
+                        <a href={`http://localhost:3000/subtitle/${movie.id}`}>
+                            <img alt="img" src={`http://localhost:3000/${movie.cover_image_location}`}/>
+                        </a>
+                        <p>{movie.name}</p>
+                        <p>{movie.genre}</p>
+                        <p>{movie.year}</p>
+                    </article>
+                ))}
 
             </div>
-
+            <div className={'pageButtons'}>
+                <button onClick={handlePrevPage} disabled={!prevPage}>Previous</button>
+                <button onClick={handleNextPage} disabled={!nextPage}>Next</button>
+            </div>
         </div>
     );
-}
+};
 
 export default Home;
