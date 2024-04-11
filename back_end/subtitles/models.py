@@ -48,5 +48,16 @@ class Subtitles(models.Model):
         blank=False,
         null=False
     )
+    trailer_url = models.CharField(
+        default='null',
+        max_length=255,
+        blank=False,
+        null=False
+    )
+    episode_count = models.IntegerField(
+        default=0,
+        blank=False,
+        null=False
+    )
     def __str__(self):
         return self.name

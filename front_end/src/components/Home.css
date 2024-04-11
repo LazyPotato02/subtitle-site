@@ -15,7 +15,7 @@ body{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: flex-start;
     border-radius: 10px;
 }
 

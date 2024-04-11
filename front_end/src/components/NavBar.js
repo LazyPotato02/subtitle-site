@@ -17,12 +17,12 @@ function NavBar() {
             <nav>
                 {/*<h1><a className={'logo'} href="/">AllTheSubs</a></h1>*/}
                 <a href="/"><img className={'logo'} src={logoImg} alt=""/></a>
-                <div className={"links"}>
-                    <a href="">Movies</a>
-                    <a href="">Series</a>
-                    {/*<a href="">Latest</a>*/}
+                {/*<div className={"links"}>*/}
+                {/*    <a href="">Movies</a>*/}
+                {/*    <a href="">Series</a>*/}
+                {/*    /!*<a href="">Latest</a>*!/*/}
 
-                </div>
+                {/*</div>*/}
                 <div className={'searchBar'} ><input type="text"/><CiSearch onClick={search} className={'searchBtn'}/></div>
 
             </nav>

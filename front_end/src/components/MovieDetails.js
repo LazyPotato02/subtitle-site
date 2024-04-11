@@ -30,69 +30,159 @@ function MovieDetails() {
     };
 
 
+    const handleDownloadSeries = (language) => {
+        if (data) {
+            let episodeNumber = document.querySelector('select').value
+            const downloadUrl = `http://localhost:8000/subtitles/download/${encodeURIComponent(data.folder_name)}/`+`${encodeURIComponent(data.subtitle_file_name)}${episodeNumber}_${language}.srt`;
+            const anchor = document.createElement('a');
+            anchor.href = downloadUrl;
+            anchor.download = data.folder_name.substring(data.subtitle_file_name.lastIndexOf('/') + 1);
+            anchor.click();
+        }
+    };
 
 
-    return (
-        <div className={'movieMain'}>
-            <article className={'movieBody'}>
+    if (data.type === 'series'){
+        let episodesCount = data.episode_count
 
-                <div className={'movieData'}>
-                    <p>{data.name}</p>
-                </div>
-                <div className={'movieDetailBox'}>
+        return (
+            <div className={'movieMain'}>
+                <article className={'movieBody'}>
 
-                    <img className={'img'} src={`http://localhost:3000/${data.cover_image_location}`} alt=""/>
-
-                    <div className={'icons'}>
-                        <div id={'icon'} className={'genre'}>
-                            <img src={GenrePic} alt=""/>
-                            <p>{data.genre}</p>
-                        </div>
-                        <div id={'icon'} className={'genre'}>
-                            <img src={SupportPic} alt=""/>
-                            <p>SUPPORT US</p>
-                        </div>
-
+                    <div className={'movieData'}>
+                        <p>{data.name}</p>
                     </div>
-                    <div className={'movieInfo'}>
-                        <div className={'trailer'}>
-                            <p>TRAILER</p>
-                            <iframe width="80%" height="270px"
-                                    src="https://www.youtube.com/embed/LDU_Txk06tM?si=oAqiAdu3JMtyABEJ"
-                                    title="YouTube video player" frameBorder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowFullScreen></iframe>
-                        </div>
-                        <div className={'info'}>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At deleniti, earum eius
-                                explicabo
-                                fugiat fugit laboriosam quia vero? Accusantium alias commodi inventore iure mollitia nam
-                                nemo pariatur, sint velit voluptatem?</p>
+                    <div className={'movieDetailBox'}>
 
-                        </div>
-                    </div>
+                        <img className={'img'} src={`http://localhost:3000/${data.cover_image_location}`} alt=""/>
 
-                </div>
-                <div>
-                    <div className={'languages'}>
-                        {langs.map(item => (
-                            <div key={item} style={{ width: '47%', height: '50%', cursor:"pointer" }} disabled={!item.name} onClick={() => handleDownload(item)}>
-                                <CountryFlag
-                                    countryCode={item}
-                                    svg
-                                    className="language"
-                                    style={{ width: '100%', height: '100%' }}
-                                />
+                        <div className={'icons'}>
+                            <div id={'icon'} className={'genre'}>
+                                <img src={GenrePic} alt=""/>
+                                <p>{data.genre}</p>
                             </div>
-                        ))}
+                            <div id={'icon'} className={'genre'}>
+                                <img src={SupportPic} alt=""/>
+                                <p>SUPPORT US</p>
+                            </div>
+                            <div id={'episode'} className={'genre'}>
+                                <label htmlFor="episode">Choose episode:</label>
+
+                                <select name="episode" id="episode">
+                                    {Array.from(Array(episodesCount), (_, i) => {
+                                        const episodeNumber = i + 1;
+                                        return <option key={episodeNumber} value={episodeNumber}>{episodeNumber}</option>;
+                                    })}
+
+                                </select>
+                            </div>
+
+                        </div>
+                        <div className={'movieInfo'}>
+                            <div className={'trailer'}>
+                            <p>TRAILER</p>
+                                <iframe width="80%" height="270px"
+                                        src="https://www.youtube.com/embed/LDU_Txk06tM?si=oAqiAdu3JMtyABEJ"
+                                        title="YouTube video player" frameBorder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowFullScreen></iframe>
+                            </div>
+                            <div className={'info'}>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At deleniti, earum eius
+                                    explicabo
+                                    fugiat fugit laboriosam quia vero? Accusantium alias commodi inventore iure mollitia nam
+                                    nemo pariatur, sint velit voluptatem?</p>
+
+                            </div>
+                        </div>
 
                     </div>
-                </div>
+                    <div>
+                        <div className={'languages'}>
+                            {langs.map(item => (
+                                <div key={item} style={{ width: '47%', height: '50%', cursor:"pointer" }} disabled={!item.name} onClick={() => handleDownloadSeries(item)}>
+                                    <CountryFlag
+                                        countryCode={item}
+                                        svg
+                                        className="language"
+                                        style={{ width: '100%', height: '100%' }}
+                                    />
+                                </div>
+                            ))}
 
-            </article>
+                        </div>
+                    </div>
 
-        </div>
-    );
+                </article>
+
+            </div>
+        );
+
+    }else if (data.type === 'movie'){
+        return (
+            <div className={'movieMain'}>
+                <article className={'movieBody'}>
+
+                    <div className={'movieData'}>
+                        <p>{data.name}</p>
+                    </div>
+                    <div className={'movieDetailBox'}>
+
+                        <img className={'img'} src={`http://localhost:3000/${data.cover_image_location}`} alt=""/>
+
+                        <div className={'icons'}>
+                            <div id={'icon'} className={'genre'}>
+                                <img src={GenrePic} alt=""/>
+                                <p>{data.genre}</p>
+                            </div>
+                            <div id={'icon'} className={'genre'}>
+                                <img src={SupportPic} alt=""/>
+                                <p>SUPPORT US</p>
+                            </div>
+
+                        </div>
+                        <div className={'movieInfo'}>
+                            <div className={'trailer'}>
+                                <p>TRAILER</p>
+                                <iframe width="80%" height="270px"
+                                        src="https://www.youtube.com/embed/LDU_Txk06tM?si=oAqiAdu3JMtyABEJ"
+                                        title="YouTube video player" frameBorder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowFullScreen></iframe>
+                            </div>
+                            <div className={'info'}>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At deleniti, earum eius
+                                    explicabo
+                                    fugiat fugit laboriosam quia vero? Accusantium alias commodi inventore iure mollitia nam
+                                    nemo pariatur, sint velit voluptatem?</p>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div>
+                        <div className={'languages'}>
+                            {langs.map(item => (
+                                <div key={item} style={{ width: '47%', height: '50%', cursor:"pointer" }} disabled={!item.name} onClick={() => handleDownload(item)}>
+                                    <CountryFlag
+                                        countryCode={item}
+                                        svg
+                                        className="language"
+                                        style={{ width: '100%', height: '100%' }}
+                                    />
+                                </div>
+                            ))}
+
+                        </div>
+                    </div>
+
+                </article>
+
+            </div>
+        );
+    }
+
+
 };
 
 
