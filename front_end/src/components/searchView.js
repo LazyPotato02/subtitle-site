@@ -29,7 +29,7 @@ function SearchView() {
                         // Object.entries()
                         data.map((item, index) => (
                             <article key={index} className={`movie`}>
-                                <a href={`http://localhost:3000/subtitle/${item.id}`}><img alt={'img'} src={`http://localhost:3000/${item.cover_image_location}`}/></a>
+                                <a href={`http://localhost:3000/subtitle/${item.id}`}><img alt={'img'} src={`http://localhost:3000/cover_img/${item.cover_image_location}`}/></a>
 
                                 <p>{item.name}</p>
                                 <p>{item.genre}</p>

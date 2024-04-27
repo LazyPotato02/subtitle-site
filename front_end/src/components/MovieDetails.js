@@ -54,7 +54,7 @@ function MovieDetails() {
                     </div>
                     <div className={'movieDetailBox'}>
 
-                        <img className={'img'} src={`http://localhost:3000/${data.cover_image_location}`} alt=""/>
+                        <img className={'img'} src={`http://localhost:3000/cover_img/${data.cover_image_location}`} alt=""/>
 
                         <div className={'icons'}>
                             <div id={'icon'} className={'genre'}>
@@ -128,7 +128,7 @@ function MovieDetails() {
                     </div>
                     <div className={'movieDetailBox'}>
 
-                        <img className={'img'} src={`http://localhost:3000/${data.cover_image_location}`} alt=""/>
+                        <img className={'img'} src={`http://localhost:3000/cover_img/${data.cover_image_location}`} alt=""/>
 
                         <div className={'icons'}>
                             <div id={'icon'} className={'genre'}>

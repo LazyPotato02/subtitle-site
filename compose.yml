@@ -46,14 +46,15 @@ services:
     volumes:
       - ./certbot-data:/etc/letsencrypt
       - ./certbot-logs:/var/log/letsencrypt
+      - ./front_end/build:/usr/share/nginx/html
     depends_on:
       - nginx
     command: certonly --webroot --webroot-path=/usr/share/nginx/html --domain yourdomain.com --agree-tos --no-eff-email --staging
     environment:
-      - CERTBOT_EMAIL=youremail@example.com
+      - CERTBOT_EMAIL=lazyp.spam@gmail.com
     networks:
       - nginx_network
 
-networks:
-  nginx_network:
-    driver: bridge
+  networks:
+    nginx_network:
+      driver: bridge

@@ -39,7 +39,7 @@ function Home() {
                 {results.map((movie, index) => (
                     <article key={index} className="movie">
                         <a href={`http://localhost:3000/subtitle/${movie.id}`}>
-                            <img alt="img" src={`http://localhost:3000/${movie.cover_image_location}`}/>
+                            <img alt="img" src={`http://localhost:3000/cover_img/${movie.cover_image_location}`}/>
                         </a>
                         <p>{movie.name}</p>
                         <p>{movie.genre}</p>
