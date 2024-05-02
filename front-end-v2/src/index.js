@@ -4,14 +4,14 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter,Routes, Route,} from 'react-router-dom';
 import Home from './components/Home'
-
+import Nav from './components/Nav'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
       <BrowserRouter>
-          {/*<NavBar/>*/}
+          <Nav/>
           <Routes>
               {/*<Route path="*" element={<NotFound />} />*/}
               <Route path="/" element={<Home/>}/>

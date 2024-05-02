@@ -1,0 +1,46 @@
+.logo{
+    width: 400px;
+    background-color: rgb(25, 142, 142,.6);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.leftPartNav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.anchors a{
+    color: #D2E9E3;
+    /*color: white;*/
+    text-decoration: none;
+    margin-left: 16px;
+    font-size: 32px;
+}
+
+.searchInp{
+    font-size: 20px;
+    padding: 10px 42px;
+    background-color: rgb(25, 142, 142,.4);
+    border: 1px solid #198e8e;
+    color: white;
+    /*border: 0;*/
+    border-bottom-left-radius: 12px;
+    border-top-left-radius: 12px;
+}
+.searchBtn{
+    font-size: 20px;
+    border: 0;
+    padding: 10px 16px;
+    background-color: rgb(44, 53, 50,.7);
+    color: white;
+    border-bottom-right-radius: 12px;
+    border-top-right-radius: 12px;
+}
