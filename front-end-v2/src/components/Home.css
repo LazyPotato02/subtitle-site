@@ -30,9 +30,10 @@
     font-size: 20px;
     background-color: rgb(16, 100, 102,.2);
     border: 1px solid #198e8e;
-
+    margin-left: -100px;
     border-radius: 16px;
     padding: 24px 34px;
+    margin-right: 100px;
 }
 .subtitlesText .aqua{
     color: #2ce5e5;
