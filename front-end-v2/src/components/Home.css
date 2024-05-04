@@ -1,4 +1,4 @@
-.main{
+.main {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -24,20 +24,19 @@
     color: white;
 }
 
-.subtitlesText{
-    /*font-weight: bold;*/
+.subtitlesText {
     font-size: 20px;
-    background-color: rgb(16, 100, 102,.2);
+    background-color: rgb(16, 100, 102, 0.2);
     border: 1px solid #198e8e;
     margin-left: -100px;
     border-radius: 16px;
     padding: 24px 34px;
     margin-right: 100px;
 }
-.subtitlesText .aqua{
+.subtitlesText .aqua {
     color: #2ce5e5;
 }
-.leftWrapTextBoxes{
+.leftWrapTextBoxes {
     margin-right: 10px;
     display: flex;
     flex-direction: column;
@@ -46,24 +45,21 @@
     letter-spacing: 8px;
 }
 
-.welcome{
-    margin-right: 200px;
+.welcome {
     font-size: 24px;
-    /*font-weight: bold;*/
 }
-.addimg1{
+.addimg1 {
     width: 350px;
     height: 100px;
     padding-left: 40px;
 }
-.addimg2{
+.addimg2 {
     rotate: 90deg;
     width: 350px;
     height: 100%;
 }
 
-
-.movies{
+.movies {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, auto);
@@ -72,21 +68,93 @@
     list-style: none;
     margin: 0;
 }
-.movie img{
+.movie img {
     width: 140px;
     height: 200px;
 }
-.movie p{
+.movie p {
     text-align: center;
 }
 
-.latest{
+.latest {
     letter-spacing: 8px;
-    /*font-weight: bold;*/
     font-size: 24px;
-    background-color: rgb(16, 100, 102,.2);
+    background-color: rgb(16, 100, 102, 0.2);
     border: 1px solid #198e8e;
-
     padding: 8px 150px;
     border-radius: 8px;
+}
+@media (max-width: 1366px) {
+    .main {
+        width: 85%; /* Adjust width to better fit medium-sized screens */
+        padding: 15px; /* Slightly reduce padding to conserve space */
+    }
+    .leftWrap, .rightWrap {
+        padding: 15px; /* Adjust padding for internal flex containers */
+    }
+
+    .subtitlesText {
+        font-size: 18px; /* Slightly reduce font size for better fit */
+        padding: 20px 30px; /* Adjust padding */
+        margin-left: 0; /* Remove negative margin */
+        margin-right: 0; /* Adjust right margin for symmetry */
+    }
+    .leftWrapTextBoxes {
+        gap: 80px; /* Adjust gap between items for better vertical spacing */
+    }
+
+    .welcome, .latest {
+        font-size: 22px; /* Slightly reduce font size */
+        padding: 10px 100px; /* Adjust padding to fit text more comfortably */
+    }
+
+    .addimg1, .addimg2 {
+        width: 300px; /* Adjust image width for consistency */
+    }
+    .addimg2 {
+        rotate: 0deg; /* Ensure image is not rotated */
+        height: auto; /* Adjust height automatically based on the width */
+    }
+
+    .movies {
+        grid-template-columns: repeat(3, 1fr); /* Maintain 3 columns for movies */
+    }
+    .movie img {
+        width: 120px; /* Slightly reduce image size */
+        height: 180px; /* Adjust height corresponding to width */
+    }
+}
+/* Responsive styles */
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column;
+    }
+    .subtitlesText, .latest {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 24px 20px;
+    }
+    .addimg1, .addimg2 {
+        width: 100%;
+        padding-left: 0;
+    }
+    .addimg2{
+        rotate: 0deg;
+    }
+    .movies {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .welcome, .latest {
+        padding: 8px 50px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .movies {
+        grid-template-columns: 1fr;
+    }
+    .leftWrapTextBoxes {
+        gap: 50px;
+    }
 }

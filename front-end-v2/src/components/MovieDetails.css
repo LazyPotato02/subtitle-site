@@ -1,4 +1,4 @@
-.MovieDetailBox{
+.MovieDetailBox {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,37 +15,35 @@
     margin-right: auto;
     padding-bottom: 50px;
 }
-.wrapper{
+.wrapper {
     display: flex;
     gap: 50px;
 }
-.infoBox{
+.infoBox {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.img{
+.img {
     width: 300px;
 }
-.name{
+.name {
     margin-right: auto;
     margin-left: 30px;
-    /*font-weight: bold;*/
     font-size: 20px;
     letter-spacing: 2px;
 }
-.detailBox{
-    background-color: rgb(16, 100, 102,.5);
+.detailBox {
+    background-color: rgb(16, 100, 102, 0.5);
     border-radius: 12px;
     height: 410px;
     width: 300px;
     padding: 20px;
-
 }
-.detailsData{
+.detailsData {
     line-height: 1.6;
 }
-.add{
+.add {
     width: 650px;
     height: 450px;
 }
@@ -65,28 +63,21 @@
     margin-right: auto;
 }
 
-.details{
-    /*font-weight: bold;*/
+.details {
     font-size: 28px;
     letter-spacing: 6px;
 }
 
-.year{
+.year, .genre {
     font-weight: 600;
     font-size: 20px;
 }
 
-.genre{
-    font-weight: 600;
-    font-size: 20px;
-}
-
-
-.seriesSection{
+.seriesSection {
     display: flex;
     flex-direction: column;
 }
-.selectEpisodes{
+.selectEpisodes {
     width: 100px;
     background-color: rgb(25, 142, 142);
     color: white;
@@ -98,16 +89,100 @@
     font-size: 16px;
 }
 
-
-.langWrapper{
+.langWrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.langWrapper p{
+.langWrapper p {
     color: white;
-    /*font-weight: bold;*/
     letter-spacing: 6px;
     font-size: 30px;
+}
+@media (max-width: 1366px) {
+    .MovieDetailBox{
+        width: 90%; /* Slightly narrower than the smallest breakpoint to use space efficiently */
+        padding: 15px; /* Reduce padding to give more room for content */
+    }
+    .languageBox {
+        width: 96%; /* Slightly narrower than the smallest breakpoint to use space efficiently */
+        padding: 15px; /* Reduce padding to give more room for content */
+    }
+
+    .wrapper {
+        flex-direction: row; /* Keep row direction but adjust spacing and alignment */
+        justify-content: space-around; /* Ensure components within wrapper are spaced out evenly */
+        gap: 30px; /* Increase or decrease gap based on visual need */
+    }
+
+    .infoBox, .langWrapper {
+        align-items: center;
+    }
+
+    .img, .detailBox, .add {
+        width: auto; /* Maintain size based on content up to max width available */
+        max-width: 90%; /* Cap max width to prevent overly large elements */
+    }
+
+    .name, .details, .langWrapper p {
+        font-size: 22px; /* Slightly decrease font size from the larger default */
+    }
+
+    .year, .genre {
+        font-size: 18px; /* Adjust font size for consistency */
+    }
+
+    .selectEpisodes {
+        width: 90px; /* Adjust width slightly for better fit */
+        padding: 6px; /* Increase padding for better clickability */
+    }
+}
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .MovieDetailBox, .languageBox {
+        width: 80%; /* Increase width to use more space on smaller screens */
+    }
+
+    .wrapper {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        gap: 20px;
+    }
+
+    .infoBox, .langWrapper {
+        align-items: center;
+    }
+
+    .img, .detailBox, .add {
+        width: 100%; /* Full width for better responsiveness */
+    }
+
+    .name, .details, .langWrapper p {
+        font-size: 18px; /* Reduce font size for smaller screens */
+    }
+
+    .year, .genre {
+        font-size: 18px;
+    }
+
+    .selectEpisodes {
+        width: 80px; /* Smaller width for selection boxes */
+    }
+
+    .languageBox {
+        display: grid; /* Switch to grid layout for the language box */
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Creates as many columns as can fit without shrinking below 120px */
+        gap: 10px; /* Space between grid items */
+        padding: 10px; /* Adjust padding for better spacing */
+    }
+}
+
+@media (max-width: 480px) {
+    .name, .details, .langWrapper p {
+        font-size: 16px; /* Further reduce font size for very small screens */
+    }
+
+    .year, .genre {
+        font-size: 16px;
+    }
 }

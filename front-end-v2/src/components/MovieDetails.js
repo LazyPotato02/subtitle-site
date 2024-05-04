@@ -19,26 +19,29 @@ function MovieDetails() {
     }, [id]);
 
     const handleDownload = (language) => {
-        if (data) {
-            const downloadUrl = `http://localhost:8000/subtitles/download/${encodeURIComponent(data.folder_name)}/` + `${encodeURIComponent(data.subtitle_file_name)}_${language}.srt`;
-            const anchor = document.createElement('a');
-            anchor.href = downloadUrl;
-            anchor.download = data.folder_name.substring(data.subtitle_file_name.lastIndexOf('/') + 1);
-            anchor.click();
+        if (data.type === 'series'){
+            if (data) {
+                let episodeNumber = document.querySelector('select').value
+                const downloadUrl = `http://localhost:8000/subtitles/download/${encodeURIComponent(data.folder_name)}/` + `${encodeURIComponent(data.subtitle_file_name)}${episodeNumber}_${language}.srt`;
+                const anchor = document.createElement('a');
+                anchor.href = downloadUrl;
+                anchor.download = data.folder_name.substring(data.subtitle_file_name.lastIndexOf('/') + 1);
+                anchor.click();
+            }
         }
-    };
+        else if (data.type === 'movie'){
+            if (data) {
+                const downloadUrl = `http://localhost:8000/subtitles/download/${encodeURIComponent(data.folder_name)}/` + `${encodeURIComponent(data.subtitle_file_name)}_${language}.srt`;
+                const anchor = document.createElement('a');
+                anchor.href = downloadUrl;
+                anchor.download = data.folder_name.substring(data.subtitle_file_name.lastIndexOf('/') + 1);
+                anchor.click();
+            }
+        }
 
 
-    const handleDownloadSeries = (language) => {
-        if (data) {
-            let episodeNumber = document.querySelector('select').value
-            const downloadUrl = `http://localhost:8000/subtitles/download/${encodeURIComponent(data.folder_name)}/` + `${encodeURIComponent(data.subtitle_file_name)}${episodeNumber}_${language}.srt`;
-            const anchor = document.createElement('a');
-            anchor.href = downloadUrl;
-            anchor.download = data.folder_name.substring(data.subtitle_file_name.lastIndexOf('/') + 1);
-            anchor.click();
-        }
     };
+
 
     if (data.type === 'series') {
         isSeries = true
@@ -88,7 +91,7 @@ function MovieDetails() {
                     {langs.map(item => (
                         <div key={item} style={{width: '47%', height: '50%', cursor: "pointer"}}
                              disabled={!data.name}
-                             onClick={() => handleDownloadSeries(item)}>
+                             onClick={() => handleDownload(item)}>
                             <CountryFlag
                                 countryCode={item}
                                 svg
