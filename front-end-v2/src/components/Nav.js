@@ -1,17 +1,50 @@
 import logo from '../img/logo.svg'
 import './nav.css'
-
+import React, { useState } from 'react';
+import axios from 'axios';
 
 function Nav(){
 
+    //
+    // function search(e) {
+    //     const searchValues = document.querySelector('input').value
+    //     window.location.href = `/search/${searchValues}`;
+    // }
 
-    function search(e) {
-        const searchValues = document.querySelector('input').value
-        window.location.href = `/search/${searchValues}`;
-    }
+    const [searchQuery, setSearchQuery] = useState('');
+    const [results, setResults] = useState([]);
+    const [loading, setLoading] = useState(false);
 
+    // Fetch search results from the API
+    const fetchResults = async () => {
+        if (searchQuery.length === 0) {
+            setResults([]);
+            return;
+        }
+        setLoading(true);
+        try {
+            const response = await axios.get(`http://localhost:8000/subtitles/search/?search_query=${searchQuery}`);
+            setResults(Array.isArray(response.data.subtitles) ? response.data.subtitles : []);
+            console.log(response)
+        } catch (error) {
+            console.error('Error fetching search results:', error);
+            setResults([]);
+        }
+        setLoading(false);
+    };
 
-    return(
+    // Handle search query change
+    const handleSearchChange = (e) => {
+        setSearchQuery(e.target.value);
+        fetchResults();
+    };
+
+    // Function to handle search result selection
+    const handleResultSelect = (searchValue) => {
+        window.location.href = `/subtitle/${searchValue}`;
+    };
+
+    return (
         <div className={'Nav'}>
             <div className={'leftPartNav'}>
                 <a href="/"><img className={'logo'} src={logo} alt=""/></a>
@@ -21,8 +54,25 @@ function Nav(){
                 </div>
             </div>
             <div className={'search'}>
-                <input className={'searchInp'} type="text"/>
-                <button onClick={search} className={'searchBtn'}>Search</button>
+                <input
+                    className={'searchInp'}
+                    type="text"
+                    value={searchQuery}
+                    onChange={handleSearchChange}
+                    placeholder="Search..."
+                />
+                <button onClick={fetchResults} className={'searchBtn'}>Search</button>
+                {loading && <div>Loading...</div>}
+                {console.log(results)}
+                {results.length > 0 && (
+                    <ul className={'searchResults'}>
+                        {results.map((item, index) => (
+                            <li key={index} onClick={() => handleResultSelect(item.id)}>
+                                {item.name}
+                            </li>
+                        ))}
+                    </ul>
+                )}
             </div>
         </div>
     )

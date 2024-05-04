@@ -1,0 +1,116 @@
+.MovieDetailBox{
+    display: flex;
+    flex-direction: column;
+    /*flex-direction: row;*/
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 12px;
+    background-color: rgba(25, 142, 142, 0.2);
+    border: 1px solid #198e8e;
+    margin-top: 30px;
+    padding: 20px;
+    width: 80%;
+    max-width: 1430px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 50px;
+}
+.wrapper{
+    display: flex;
+    gap: 50px;
+}
+.infoBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.img{
+    width: 300px;
+}
+.name{
+    margin-right: auto;
+    margin-left: 30px;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+.detailBox{
+    background-color: rgb(16, 100, 102,.5);
+    border-radius: 12px;
+    height: 410px;
+    width: 300px;
+    /*padding-bottom: 90px;*/
+    padding: 20px;
+    /*display: fle
+    x;*/
+    /*flex-direction: column;*/
+    /*align-items: center;*/
+}
+.detailsData{
+    line-height: 1.6;
+}
+.add{
+    width: 650px;
+    height: 450px;
+}
+.languageBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 12px;
+    background-color: rgba(25, 142, 142, 0.2);
+    border: 1px solid #198e8e;
+    padding: 20px;
+    width: 80%;
+    max-width: 1470px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.details{
+    font-weight: bold;
+    font-size: 24px;
+    letter-spacing: 6px;
+}
+
+.year{
+    font-weight: 600;
+}
+
+.genre{
+    font-weight: 600;
+}
+
+
+.seriesSection{
+    display: flex;
+    flex-direction: column;
+}
+.selectEpisodes{
+    width: 100px;
+    background-color: rgb(25, 142, 142);
+    color: white;
+    text-align: center;
+    margin-top: 8px;
+    padding: 4px;
+    border-radius: 8px;
+    border: 1px solid #198e8e;
+    font-size: 16px;
+}
+
+
+.langWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.langWrapper p{
+    color: white;
+    font-weight: bold;
+    letter-spacing: 6px;
+    font-size: 30px;
+}
