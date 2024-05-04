@@ -30,7 +30,7 @@
 .name{
     margin-right: auto;
     margin-left: 30px;
-    font-weight: bold;
+    /*font-weight: bold;*/
     font-size: 20px;
     letter-spacing: 2px;
 }
@@ -66,17 +66,19 @@
 }
 
 .details{
-    font-weight: bold;
-    font-size: 24px;
+    /*font-weight: bold;*/
+    font-size: 28px;
     letter-spacing: 6px;
 }
 
 .year{
     font-weight: 600;
+    font-size: 20px;
 }
 
 .genre{
     font-weight: 600;
+    font-size: 20px;
 }
 
 
@@ -105,7 +107,7 @@
 
 .langWrapper p{
     color: white;
-    font-weight: bold;
+    /*font-weight: bold;*/
     letter-spacing: 6px;
     font-size: 30px;
 }
