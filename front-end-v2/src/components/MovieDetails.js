@@ -52,7 +52,7 @@ function MovieDetails() {
                 <div className={'wrapper'}>
                     <div className={'infoBox'}>
 
-                        <img className={'img'} src={`http://localhost:3000/cover_img/${data.cover_image_location}`}
+                        <img className={'img'} src={`http://localhost:3000/${data.cover_image_location}`}
                              alt=""/>
                     </div>
                     <div className={'detailBox'}>

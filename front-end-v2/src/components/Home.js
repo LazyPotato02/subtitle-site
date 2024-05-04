@@ -28,7 +28,7 @@ function Home() {
                 <ul className={'movies'}>
                     <li className={'movie'}>
                         <img src={testImg} alt=""/>
-                        <p>NAME</p>
+                        <p>Harry Potter and the Deathly Hallows – Part 2</p>
                     </li>
                     <li className={'movie'}>
                         <img src={testImg2} alt=""/>

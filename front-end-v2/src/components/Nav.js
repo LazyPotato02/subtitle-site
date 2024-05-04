@@ -25,7 +25,6 @@ function Nav(){
         try {
             const response = await axios.get(`http://localhost:8000/subtitles/search/?search_query=${searchQuery}`);
             setResults(Array.isArray(response.data.subtitles) ? response.data.subtitles : []);
-            console.log(response)
         } catch (error) {
             console.error('Error fetching search results:', error);
             setResults([]);
@@ -50,7 +49,7 @@ function Nav(){
                 <a href="/"><img className={'logo'} src={logo} alt=""/></a>
                 <div className={'anchors'}>
                     <a href="/">Home</a>
-                    <a href="#">Community</a>
+                    <a href="https://discord.gg/pnzc5FRRxA">Community</a>
                 </div>
             </div>
             <div className={'search'}>
@@ -62,8 +61,7 @@ function Nav(){
                     placeholder="Search..."
                 />
                 <button onClick={fetchResults} className={'searchBtn'}>Search</button>
-                {loading && <div>Loading...</div>}
-                {console.log(results)}
+                {loading && <div></div>}
                 {results.length > 0 && (
                     <ul className={'searchResults'}>
                         {results.map((item, index) => (

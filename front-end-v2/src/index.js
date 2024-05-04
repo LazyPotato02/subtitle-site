@@ -15,6 +15,7 @@ import img6 from "./img/Guardion_of_the_gaxay.jpg";
 import img8 from "./img/Spider_Man_Miles.jpg";
 import img9 from "./img/Stranger_Things.jpg";
 import img10 from "./img/THE_Mandalorian.jpg";
+import NotFound from "./components/notFound";
 
 function setRandomBackground() {
     const backgrounds = [
@@ -37,7 +38,7 @@ root.render(
       <BrowserRouter>
           <Nav/>
           <Routes>
-              {/*<Route path="*" element={<NotFound />} />*/}
+              <Route path="*" element={<NotFound />} />
               <Route path="/" element={<Home/>}/>
               {/*<Route path="/search/:searchValue" element={<SearchView/>} />*/}
               <Route path="/subtitle/:id" element={<MovieDetails/>} />
