@@ -13,7 +13,7 @@ function MovieDetails() {
     let langs = ['AZ','AR','AL','BA','BG','GE','EE','LV','LT','MK','RO','SI','SK','RS','TR','UA','US']
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/subtitles/api/${id}`)
+        axios.get(`http://localhost:8080/subtitles/api/${id}`)
             .then(response => setData(response.data))
             .catch(error => window.location = '/')
     }, [id]);
@@ -22,7 +22,7 @@ function MovieDetails() {
         if (data.type === 'series'){
             if (data) {
                 let episodeNumber = document.querySelector('select').value
-                const downloadUrl = `http://localhost:8000/subtitles/download/${encodeURIComponent(data.folder_name)}/` + `${encodeURIComponent(data.subtitle_file_name)}${episodeNumber}_${language}.srt`;
+                const downloadUrl = `http://localhost:8080/subtitles/download/${encodeURIComponent(data.folder_name)}/` + `${encodeURIComponent(data.subtitle_file_name)}${episodeNumber}_${language}.srt/${id}`;
                 const anchor = document.createElement('a');
                 anchor.href = downloadUrl;
                 anchor.download = data.folder_name.substring(data.subtitle_file_name.lastIndexOf('/') + 1);
@@ -31,14 +31,16 @@ function MovieDetails() {
         }
         else if (data.type === 'movie'){
             if (data) {
-                const downloadUrl = `http://localhost:8000/subtitles/download/${encodeURIComponent(data.folder_name)}/` + `${encodeURIComponent(data.subtitle_file_name)}_${language}.srt`;
+                const downloadUrl = `http://localhost:8080/subtitles/download/${encodeURIComponent(data.folder_name)}/` + `${encodeURIComponent(data.subtitle_file_name)}_${language}.srt`;
                 const anchor = document.createElement('a');
                 anchor.href = downloadUrl;
                 anchor.download = data.folder_name.substring(data.subtitle_file_name.lastIndexOf('/') + 1);
                 anchor.click();
             }
         }
-
+        setTimeout(() => {
+            window.location.reload();  // Reload the page after a short delay.
+        }, 1500);
 
     };
 
@@ -63,6 +65,8 @@ function MovieDetails() {
                         <div className={'detailsData'}>
                             <p className={'year'}>{data.year}</p>
                             <p className={'genre'}>{data.genre}</p>
+                            <p className={'genre'}>Downloads: {data.download_counter}</p>
+
                         </div>
 
 

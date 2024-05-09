@@ -11,7 +11,7 @@ sitemaps = {
 urlpatterns = [
     path('api/', SubtitlesApiView.as_view()),
     path('api/<int:subtitle_id>',SubtitleDetailedView.as_view()),
-    path('download/<path:folder_path>/<str:file_name>/', download_file, name='download_file'),
+    path('download/<path:folder_path>/<str:file_name>/<int:id>', download_file, name='download_file'),
     path('search/', subtitleSearchView.as_view(), name='search-view'),
     path('pagination/', YourModelList.as_view(), name='your_model_list'),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),

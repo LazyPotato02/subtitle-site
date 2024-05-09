@@ -7,6 +7,8 @@ from .serializers import SubtitlesSerializer,SearchSerializer
 import os
 from django.http import FileResponse,HttpResponseNotFound
 from django.conf import settings
+from django.shortcuts import get_object_or_404
+from django.db.models import F
 class SubtitlesApiView(APIView):
     # permission_classes = [permissions.IsAuthenticated]
 
@@ -31,13 +33,20 @@ class SubtitlesApiView(APIView):
 
 
 
-def download_file(request, folder_path, file_name):
+def download_file(request, folder_path, file_name,id):
     # Construct the full path to the file
+
     file_path = os.path.join(settings.MEDIA_ROOT, folder_path, file_name)
+    print(f"Download requested for subtitle ID: {id}")
+
 
     # Check if the file exists
     if os.path.exists(file_path):
         # Serve the file using FileResponse
+
+        subtitle = get_object_or_404(Subtitles, id=id)
+        subtitle.download_counter = F('download_counter') + 1
+        subtitle.save()
         return FileResponse(open(file_path, 'rb'), as_attachment=True)
     else:
         # Return a 404 error if the file does not exist

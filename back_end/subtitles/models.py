@@ -4,6 +4,7 @@ from django.db import models
 # Model for the subtitle database objects
 class Subtitles(models.Model):
 
+
     class Meta:
         ordering = ['id']
 
@@ -48,6 +49,11 @@ class Subtitles(models.Model):
         null=False
     )
     episode_count = models.IntegerField(
+        default=0,
+        blank=False,
+        null=False
+    )
+    download_counter = models.IntegerField(
         default=0,
         blank=False,
         null=False
