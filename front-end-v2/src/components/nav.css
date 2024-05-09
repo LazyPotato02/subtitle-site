@@ -26,6 +26,9 @@
     margin-left: 16px;
     font-size: 28px;
 }
+.anchors a:hover{
+    color: #9db4ad;
+}
 
 .searchInp {
     font-size: 20px;

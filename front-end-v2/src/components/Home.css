@@ -72,6 +72,10 @@
     width: 140px;
     height: 200px;
 }
+.movie img:hover{
+    opacity: 0.75;
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
 .movie p {
     text-align: center;
 }

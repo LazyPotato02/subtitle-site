@@ -15,7 +15,7 @@ function MovieDetails() {
     useEffect(() => {
         axios.get(`http://localhost:8000/subtitles/api/${id}`)
             .then(response => setData(response.data))
-            .catch(error => console.log(error))
+            .catch(error => window.location = '/')
     }, [id]);
 
     const handleDownload = (language) => {

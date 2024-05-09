@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure-k&dwi%gvds)-smw2f_6m!9c)eu@nyuk&c$ro*=-@qpqobg_fjy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -28,6 +28,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
+    'django.contrib.sites',
     'rest_framework',
     'corsheaders',
     'subtitles',
@@ -46,7 +48,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'back_end.urls'
 
-
+SITE_ID = 1
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 14

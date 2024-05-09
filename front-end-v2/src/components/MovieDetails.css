@@ -62,7 +62,10 @@
     margin-left: auto;
     margin-right: auto;
 }
-
+.language:hover{
+    opacity: 0.7;
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
 .details {
     font-size: 28px;
     letter-spacing: 6px;
