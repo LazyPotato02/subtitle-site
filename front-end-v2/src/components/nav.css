@@ -36,8 +36,9 @@
     background-color: rgb(25, 142, 142, 0.4);
     border: 1px solid #198e8e;
     color: white;
-    border-bottom-left-radius: 12px;
-    border-top-left-radius: 12px;
+    /*border-bottom-left-radius: 12px;*/
+    /*border-top-left-radius: 12px;*/
+    border-radius: 12px;
 }
 .searchBtn {
     font-size: 20px;
