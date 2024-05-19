@@ -1,6 +1,8 @@
 import React from "react";
 import './notFound.css'
 function NotFound() {
+    document.title = 'All The Subs'
+
     return (
         <div className={'notFound'}>
             <div className={'text'}>

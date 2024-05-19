@@ -16,7 +16,7 @@ import img8 from "./img/Spider_Man_Miles.jpg";
 import img9 from "./img/Stranger_Things.jpg";
 import img10 from "./img/THE_Mandalorian.jpg";
 import NotFound from "./components/notFound";
-
+import PrivacyPolicy from "./components/privacyPolicy";
 function setRandomBackground() {
     const backgrounds = [
         img1, img2, img3, img4, img5, img6, img8, img9, img10
@@ -42,6 +42,7 @@ root.render(
               <Route path="/" element={<Home/>}/>
               {/*<Route path="/search/:searchValue" element={<SearchView/>} />*/}
               <Route path="/subtitle/:id" element={<MovieDetails/>} />
+              <Route path="/privacy" element={<PrivacyPolicy/>} />
           </Routes>
       </BrowserRouter>
   </React.StrictMode>

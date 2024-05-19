@@ -12,11 +12,13 @@ function MovieDetails() {
     let episodesCount = data.episode_count
     let langs = ['AZ','AR','AL','BA','BG','GE','EE','LV','LT','MK','RO','SI','SK','RS','TR','UA','US']
 
+
     useEffect(() => {
         axios.get(`http://localhost:8080/subtitles/api/${id}`)
             .then(response => setData(response.data))
             .catch(error => window.location = '/')
     }, [id]);
+    document.title = `${data.name}`
 
     const handleDownload = (language) => {
         if (data.type === 'series'){
@@ -51,7 +53,6 @@ function MovieDetails() {
 
     return (
         <div>
-
             <div className={'MovieDetailBox'}>
                 <p className={'name'}>{data.name}</p>
                 <div className={'wrapper'}>

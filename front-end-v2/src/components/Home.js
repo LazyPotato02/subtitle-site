@@ -7,7 +7,7 @@ import testImg3 from '../img/Barbie_2023.webp'
 import testImg4 from '../img/Captain_America_The_Winter_Soldier_2014.webp'
 function Home() {
 
-
+    document.title = 'All The Subs'
 
     return (
         <div className={'main'}>
